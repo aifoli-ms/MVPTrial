@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3001;
 
 // --- NEW: Initialize Deepgram ---
 // Get your API key from Vercel's Environment Variables
-const deepgram = createClient(process.env.DEEPGRAM_API_KEY);
+const deepgram = createClient(380b6d99705e632e64b1cdfb76f91874117205b6);
 
 app.use(cors());
 
