@@ -27,7 +27,7 @@ COPY . .
 # Make the start script executable
 RUN chmod +x ./start.sh
 
-EXPOSE 3001
+EXPOSE 8080
 
 # Define the command to run your app
 CMD [ "./start.sh" ]
