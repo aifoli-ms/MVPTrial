@@ -12,9 +12,9 @@ from watchdog.events import FileSystemEventHandler
 api_key = os.environ.get("DEEPGRAM_API_KEY") or "380b6d99705e632e64b1cdfb76f91874117205b6"
 
 # Directory to watch for new audio files
-WATCH_DIRECTORY = "/tmp/audio_to_process"
+WATCH_DIRECTORY = "./audio_to_process"
 # Directory to save the resulting transcript text files
-TRANSCRIPT_DIRECTORY = "/tmp/transcripts"
+TRANSCRIPT_DIRECTORY = "./transcripts"
 
 # Allowed audio file extensions (add more as needed)
 ALLOWED_EXTENSIONS = ('.mp3', '.wav', '.flac', '.m4a', '.webm')
