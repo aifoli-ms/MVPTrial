@@ -17,7 +17,8 @@ RUN npm install
 # Copy requirements.txt
 COPY requirements.txt ./
 # Install Python dependencies
-RUN pip install -r requirements.txt
+# Install Python dependencies
+RUN pip install -r requirements.txt --break-system-packages
 
 # --- Application Code ---
 # Bundle app source code (copies server.js, audio_monitor.py, etc.)
