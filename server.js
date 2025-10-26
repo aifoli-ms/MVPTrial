@@ -93,6 +93,6 @@ app.get('/transcripts/find/:prefix', (req, res) => {
 });
 
 
-app.listen(PORT, () => {
+app.listen(PORT,'0.0.0.0', () => {
   console.log(`Audio upload server listening on http://localhost:${PORT}`);
 });
