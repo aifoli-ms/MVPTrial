@@ -1,20 +1,30 @@
 # Use an official Node runtime as a parent image
 FROM node:20-alpine
 
+# Install Python and pip
+RUN apk add --no-cache python3 py3-pip
+
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
+# --- Node.js Setup ---
 # Copy package.json and package-lock.json (if available)
 COPY package*.json ./
-
-# Install app dependencies (this replaces 'npm install' in the build step)
+# Install app dependencies
 RUN npm install
 
-# Bundle app source code
+# --- Python Setup ---
+# Copy requirements.txt
+COPY requirements.txt ./
+# Install Python dependencies
+RUN pip install -r requirements.txt
+
+# --- Application Code ---
+# Bundle app source code (copies server.js, audio_monitor.py, etc.)
 COPY . .
 
-# Your server listens on this port (as defined in your server.js)
-EXPOSE 3001 
+# Make the start script executable
+RUN chmod +x ./start.sh
 
 # Define the command to run your app
-CMD [ "node", "server.js" ]
+CMD [ "./start.sh" ]
