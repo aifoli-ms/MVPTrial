@@ -13,10 +13,13 @@ import "dotenv/config"; // Loads .env file variables into process.env
 // Get API key from environment variables (loads from .env file)
 const apiKey = "380b6d99705e632e64b1cdfb76f91874117205b6";
 
+// Define one parent directory for all persistent data
+const PERSISTENT_DATA_DIR = "./persistent_data";
+
 // Directory to watch for new audio files (and for uploads)
-const WATCH_DIRECTORY = "./audio_to_process";
+const WATCH_DIRECTORY = path.join(PERSISTENT_DATA_DIR, "audio_to_process");
 // Directory to save the resulting transcript text files
-const TRANSCRIPT_DIRECTORY = "./transcripts";
+const TRANSCRIPT_DIRECTORY = path.join(PERSISTENT_DATA_DIR, "transcripts");
 // Server port
 const PORT = process.env.PORT || 3001;
 
